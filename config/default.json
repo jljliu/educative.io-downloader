@@ -2,9 +2,9 @@
     "email": "example@gmail.com",
     "password": "yourPassword",
     "loginCheck": true,
-    "saveAs": "html",
+    "saveAs": "pdf",
     "multiLanguage": false,
     "headless": true,
-    "courseUrl": "https://www.educative.io/courses/grokking-the-behavioral-interview",
+    "courseUrl": "https://www.educative.io/courses/grokking-the-coding-interview/RMyv02ylw2q",
     "downloadAllCourses": false
 }

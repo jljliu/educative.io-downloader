@@ -90,7 +90,7 @@ async function fetchLessonUrls(courseUrl: string): Promise<PageTitleAndLink[]> {
   console.log(`Looking for lessons\'s urls`);
 
   const pageLinks = await page.evaluate(() => {
-    const links: HTMLAnchorElement[] = Array.from(document.querySelectorAll('.tab-content a'));
+    const links: HTMLAnchorElement[] = Array.from(document.querySelectorAll('a')).filter((link) => link?.href?.startsWith('https://www.educative.io/courses/'));
     return links.map((link) => {
       return {
         title: link.innerText,
@@ -167,6 +167,26 @@ async function downloadPage(title: string, link: string): Promise<void> {
           console.log("\x1b[31m", error, "\x1b[0m");
           throw error;
         }
+
+        try {
+          document.querySelectorAll('.opacity-100')[0].remove();
+        } catch(e) {}
+
+        try {
+          document.querySelectorAll('.MuiPaper-root')[0].remove();
+        } catch(e) {}
+
+        try {
+          document.querySelectorAll('.styles__ButtonsPanelStyled-ju0obm-0')[0].remove();
+        } catch(e) {}
+
+        try {
+          document.querySelectorAll('.styles__Pagination-iis34-4')[0].remove();
+        } catch(e) {}
+
+        try {
+          document.querySelectorAll('.MuiBox-root')[0].remove();
+        } catch(e) {}
 
         const correctSolutionStyle = document.querySelectorAll('[class*="styles__Caption-sc"]');
 
